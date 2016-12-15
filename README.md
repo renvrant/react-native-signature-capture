@@ -152,7 +152,7 @@ class RNSignatureExample extends Component {
                 <Text style={{alignItems:"center",justifyContent:"center"}}>Signature Capture Extended </Text>
                 <SignatureCapture
                     style={[{flex:1},styles.signature]}
-                    ref="sign"
+                    ref={sign => this.signComponent = sign}
                     onSaveEvent={this._onSaveEvent}
                     onDragEvent={this._onDragEvent}
                     saveImageFileInExtStorage={false}
@@ -177,11 +177,11 @@ class RNSignatureExample extends Component {
     }
 
     saveSign() {
-        this.refs["sign"].saveImage();
+        this.signComponent.saveImage();
     }
 
     resetSign() {
-        this.refs["sign"].resetImage();
+        this.signComponent.resetImage();
     }
 
     _onSaveEvent(result) {
